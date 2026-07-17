@@ -257,7 +257,7 @@ const Home = () => {
                                         className="img-fluid rounded"
                                         style={{
                                             width: "100%",
-                                            height: "180px",
+                                            height: "200px",
                                             objectFit: "fill"
                                         }}
                                         alt=""
@@ -272,7 +272,7 @@ const Home = () => {
                                         className="img-fluid rounded"
                                         style={{
                                             width: "100%",
-                                            height: "180px",
+                                            height: "200px",
                                             objectFit: "fill"
                                         }}
                                         alt=""
@@ -287,7 +287,7 @@ const Home = () => {
                                         className="img-fluid rounded"
                                         style={{
                                             width: "100%",
-                                            height: "180px",
+                                            height: "200px",
                                             objectFit: "fill"
                                         }}
                                         alt=""
@@ -297,7 +297,9 @@ const Home = () => {
 
                             </div>
 
-                        </div>                        <div className="carousel-item">
+                        </div>
+
+                        <div className="carousel-item">
 
                             <div className="row g-3">
 
@@ -308,7 +310,7 @@ const Home = () => {
                                         className="img-fluid rounded"
                                         style={{
                                             width: "100%",
-                                            height: "180px",
+                                            height: "200px",
                                             objectFit: "fill"
                                         }}
                                         alt=""
@@ -323,7 +325,7 @@ const Home = () => {
                                         className="img-fluid rounded"
                                         style={{
                                             width: "100%",
-                                            height: "180px",
+                                            height: "200px",
                                             objectFit: "fill"
                                         }}
                                         alt=""
@@ -338,7 +340,7 @@ const Home = () => {
                                         className="img-fluid rounded"
                                         style={{
                                             width: "100%",
-                                            height: "180px",
+                                            height: "200px",
                                             objectFit: "fill"
                                         }}
                                         alt=""
