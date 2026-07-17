@@ -115,6 +115,12 @@ Flipkart-Clone
 
 ---
 
+## Products
+
+![Products](Screenshots/products.png)
+
+---
+
 ## Cart Page
 
 ![Cart Page](Screenshots/cart.png)
