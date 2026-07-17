@@ -12,6 +12,7 @@ const AddProduct = () => {
     const [description, setDescription] = useState("");
     const [image, setImage] = useState("");
     const [category, setCategory] = useState("");
+    const [rating, setRating] = useState(5);
 
     const [categories, setCategories] = useState([]);
 
@@ -48,7 +49,8 @@ const AddProduct = () => {
                 price,
                 description,
                 image,
-                category
+                category,
+                rating
             };
 
             const token = localStorage.getItem("token");
@@ -83,86 +85,139 @@ const AddProduct = () => {
 
             <Header />
 
-            <div className="container mt-5">
+            <div
+                className="container-fluid py-5"
+                style={{
+                    background: "#f1f3f6",
+                    minHeight: "100vh"
+                }}
+            >
 
-                <div className="row">
-                    <div className="col-md-6">
+                <div className="row justify-content-center">
 
-                        <div className="card shadow">
+                    <div className="col-lg-7 col-md-9">
 
-                            <div className="card-body">
+                        <div
+                            className="card border-0 shadow-lg"
+                            style={{
+                                borderRadius: "20px"
+                            }}
+                        >
 
-                                <h2 className="text-center mb-4">
-                                    Add Product
+                            <div className="card-body p-5">
+
+                                <h2
+                                    className="text-center fw-bold mb-2"
+                                    style={{
+                                        color: "#2874F0"
+                                    }}
+                                >
+                                    Add New Product
                                 </h2>
+
+                                <p className="text-center text-muted mb-5">
+                                    Fill all product details below
+                                </p>
 
                                 <form onSubmit={handleSubmit}>
 
-                                    <div className="mb-3">
-                                        <label className="form-label">
+                                    <div className="mb-4">
+
+                                        <label className="form-label fw-semibold">
                                             Product Name
                                         </label>
 
                                         <input
                                             type="text"
-                                            className="form-control"
+                                            className="form-control py-3"
+                                            placeholder="Enter Product Name"
                                             value={name}
                                             onChange={(e) => setName(e.target.value)}
                                             required
                                         />
+
                                     </div>
 
-                                    <div className="mb-3">
-                                        <label className="form-label">
-                                            Price
-                                        </label>
+                                    <div className="row">
 
-                                        <input
-                                            type="number"
-                                            className="form-control"
-                                            value={price}
-                                            onChange={(e) => setPrice(e.target.value)}
-                                            required
-                                        />
-                                    </div>
+                                        <div className="col-md-6 mb-4">
 
-                                    <div className="mb-3">
-                                        <label className="form-label">
+                                            <label className="form-label fw-semibold">
+                                                Price
+                                            </label>
+
+                                            <input
+                                                type="number"
+                                                className="form-control py-3"
+                                                placeholder="Enter Price"
+                                                value={price}
+                                                onChange={(e) => setPrice(e.target.value)}
+                                                required
+                                            />
+
+                                        </div>
+
+                                        <div className="col-md-6 mb-4">
+
+                                            <label className="form-label fw-semibold">
+                                                Rating
+                                            </label>
+
+                                            <input
+                                                type="number"
+                                                className="form-control py-3"
+                                                min="1"
+                                                max="5"
+                                                step="0.1"
+                                                value={rating}
+                                                onChange={(e) => setRating(e.target.value)}
+                                                required
+                                            />
+
+                                        </div>
+
+                                    </div>                                    <div className="mb-4">
+
+                                        <label className="form-label fw-semibold">
                                             Description
                                         </label>
 
                                         <textarea
-                                            className="form-control"
+                                            className="form-control py-3"
                                             rows="4"
+                                            placeholder="Enter Product Description"
                                             value={description}
                                             onChange={(e) => setDescription(e.target.value)}
                                             required
                                         ></textarea>
+
                                     </div>
 
-                                    <div className="mb-3">
-                                        <label className="form-label">
+                                    <div className="mb-4">
+
+                                        <label className="form-label fw-semibold">
                                             Image URL
                                         </label>
 
                                         <input
                                             type="text"
-                                            className="form-control"
+                                            className="form-control py-3"
                                             placeholder="https://example.com/image.jpg"
                                             value={image}
                                             onChange={(e) => setImage(e.target.value)}
                                             required
                                         />
+
                                     </div>
 
-                                    <div className="mb-3">
+                                    <div className="mb-5">
 
-                                        <label className="form-label">
+                                        <label className="form-label fw-semibold">
                                             Category
                                         </label>
 
                                         <select
-                                            className="form-select"
+                                            className="form-select py-3"
                                             value={category}
                                             onChange={(e) => setCategory(e.target.value)}
                                             required
@@ -191,7 +246,14 @@ const AddProduct = () => {
 
                                     <button
                                         type="submit"
-                                        className="btn btn-primary w-100"
+                                        className="btn w-100 py-3 fw-bold text-white"
+                                        style={{
+                                            background: "#FB641B",
+                                            border: "none",
+                                            borderRadius: "10px",
+                                            fontSize: "18px",
+                                            transition: "0.3s"
+                                        }}
                                     >
                                         Add Product
                                     </button>

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axiosInstance from "../api/axiosInstance";
+import loginImage from "../assets/login.png";
 
 const Register = () => {
 
@@ -16,8 +17,10 @@ const Register = () => {
         e.preventDefault();
 
         if (password !== confirmPassword) {
+
             alert("Password and Confirm Password do not match");
             return;
+
         }
 
         try {
@@ -29,27 +32,13 @@ const Register = () => {
                 confirmPassword
             });
 
-            console.log("Register Response :", response.data);
-
             alert(response.data.message);
 
             navigate("/login");
 
         } catch (error) {
 
-            console.log("Full Error :", error);
-
-            if (error.response) {
-
-                console.log("Response :", error.response.data);
-
-                alert(error.response.data.message);
-
-            } else {
-
-                alert(error.message);
-
-            }
+            alert(error.response?.data?.message || "Registration Failed");
 
         }
 
@@ -57,109 +46,146 @@ const Register = () => {
 
     return (
 
-        <div className="container mt-5">
+        <div
+            className="container-fluid d-flex justify-content-center align-items-center"
+            style={{
+                minHeight: "100vh",
+                background: "#f1f3f6"
+            }}
+        >
 
-            <div className="row justify-content-center">
+            <div
+                className="row bg-white shadow"
+                style={{
+                    width: "900px",
+                    minHeight: "560px"
+                }}
+            >
 
-                <div className="col-md-5">
+                {/* Left Panel */}
 
-                    <div className="card shadow">
+                <div
+                    className="col-md-4 text-white p-5 d-flex flex-column justify-content-between"
+                    style={{
+                        background: "#2874f0"
+                    }}
+                >
 
-                        <div className="card-body">
+                    <div>
 
-                            <h2 className="text-center mb-4">
-                                Register
-                            </h2>
+                        <h2 className="fw-bold">
+                            Looks like you're new here!
+                        </h2>
 
-                            <form onSubmit={handleSubmit}>
+                        <p className="mt-4 fs-5">
+                            Sign up with your details to get started.
+                        </p>
 
-                                <div className="mb-3">
+                    </div>
 
-                                    <label className="form-label">
-                                        Name
-                                    </label>
+                    <div className="text-center">
 
-                                    <input
-                                        type="text"
-                                        className="form-control"
-                                        value={name}
-                                        onChange={(e) => setName(e.target.value)}
-                                        required
-                                    />
+                        <img
+                            src={loginImage}
+                            alt="Register"
+                            style={{
+                                width: "220px"
+                            }}
+                        />
 
-                                </div>
+                    </div>
 
-                                <div className="mb-3">
+                </div>
 
-                                    <label className="form-label">
-                                        Email
-                                    </label>
+                {/* Right Panel */}
 
-                                    <input
-                                        type="email"
-                                        className="form-control"
-                                        value={email}
-                                        onChange={(e) => setEmail(e.target.value)}
-                                        required
-                                    />
+                <div className="col-md-8 p-5">
 
-                                </div>
+                    <form onSubmit={handleSubmit}>
 
-                                <div className="mb-3">
+                        <div className="mb-4">
 
-                                    <label className="form-label">
-                                        Password
-                                    </label>
-
-                                    <input
-                                        type="password"
-                                        className="form-control"
-                                        value={password}
-                                        onChange={(e) => setPassword(e.target.value)}
-                                        required
-                                    />
-
-                                </div>
-
-                                <div className="mb-3">
-
-                                    <label className="form-label">
-                                        Confirm Password
-                                    </label>
-
-                                    <input
-                                        type="password"
-                                        className="form-control"
-                                        value={confirmPassword}
-                                        onChange={(e) => setConfirmPassword(e.target.value)}
-                                        required
-                                    />
-
-                                </div>
-
-                                <button
-                                    type="submit"
-                                    className="btn btn-primary w-100"
-                                >
-                                    Register
-                                </button>
-
-                            </form>
-
-                            <p className="text-center mt-3">
-
-                                Already have an account?
-
-                                <Link
-                                    to="/login"
-                                    className="ms-2"
-                                >
-                                    Login
-                                </Link>
-
-                            </p>
+                            <input
+                                type="text"
+                                className="form-control border-0 border-bottom rounded-0"
+                                placeholder="Enter Name"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                                required
+                            />
 
                         </div>
+
+                        <div className="mb-4">
+
+                            <input
+                                type="email"
+                                className="form-control border-0 border-bottom rounded-0"
+                                placeholder="Enter Email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                required
+                            />
+
+                        </div>
+
+                        <div className="mb-4">
+
+                            <input
+                                type="password"
+                                className="form-control border-0 border-bottom rounded-0"
+                                placeholder="Enter Password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                required
+                            />
+
+                        </div>
+
+                        <div className="mb-4">
+
+                            <input
+                                type="password"
+                                className="form-control border-0 border-bottom rounded-0"
+                                placeholder="Confirm Password"
+                                value={confirmPassword}
+                                onChange={(e) => setConfirmPassword(e.target.value)}
+                                required
+                            />
+
+                        </div>
+
+                        <p
+                            style={{
+                                fontSize: "13px",
+                                color: "#878787"
+                            }}
+                        >
+                            By continuing, you agree to Flipkart's Terms of Use and Privacy Policy.
+                        </p>
+
+                        <button
+                            type="submit"
+                            className="btn w-100 text-white mt-3"
+                            style={{
+                                background: "#fb641b",
+                                height: "48px",
+                                fontWeight: "600"
+                            }}
+                        >
+                            Register
+                        </button>
+
+                    </form>
+
+                    <div className="text-center mt-5">
+
+                        <Link
+                            to="/login"
+                            className="text-decoration-none fw-bold"
+                        >
+                            Existing User? Login
+                        </Link>
 
                     </div>
 

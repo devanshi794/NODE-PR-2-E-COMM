@@ -69,91 +69,157 @@ const ViewProduct = () => {
 
             <Header />
 
-            <div className="container mt-5">
+            <div
+                className="container-fluid py-5"
+                style={{
+                    background: "#f1f3f6",
+                    minHeight: "100vh"
+                }}
+            >
 
-                <h2 className="mb-4 text-center">
-                    View Products
-                </h2>
+                <div className="container">
 
-                <table className="table table-bordered table-striped">
+                    <div className="row justify-content-center">
 
-                    <thead className="table-dark">
+                        <div className="col-lg-11">
 
-                        <tr>
+                            <div
+                                className="card border-0 shadow-lg"
+                                style={{
+                                    borderRadius: "18px"
+                                }}
+                            >
 
-                            <th>No.</th>
+                                <div className="card-body p-4">
 
-                            <th>Name</th>
-
-                            <th>Price</th>
-
-                            <th>Category</th>
-
-                            <th>Action</th>
-
-                        </tr>
-
-                    </thead>
-
-                    <tbody>
-                        {
-
-                            products.length > 0 ? (
-
-                                products.map((product, index) => (
-
-                                    <tr key={product._id}>
-
-                                        <td>{index + 1}</td>
-
-                                        <td>{product.name}</td>
-
-                                        <td>₹ {product.price}</td>
-
-                                        <td>{product.category?.name}</td>
-
-                                        <td>
-
-                                            <Link
-                                                to={`/edit-product/${product._id}`}
-                                                className="btn btn-success btn-sm me-2"
-                                            >
-                                                Edit
-                                            </Link>
-
-                                            <button
-                                                className="btn btn-danger btn-sm"
-                                                onClick={() => handleDelete(product._id)}
-                                            >
-                                                Delete
-                                            </button>
-
-                                        </td>
-
-                                    </tr>
-
-                                ))
-
-                            ) : (
-
-                                <tr>
-
-                                    <td
-                                        colSpan="5"
-                                        className="text-center"
+                                    <h2
+                                        className="text-center fw-bold mb-2"
+                                        style={{
+                                            color: "#2874F0"
+                                        }}
                                     >
-                                        No Products Found
-                                    </td>
+                                        View Products
+                                    </h2>
 
-                                </tr>
+                                    <p className="text-center text-muted mb-4">
+                                        Manage all your products
+                                    </p>
 
-                            )
+                                    <div className="table-responsive">
 
-                        }
+                                        <table className="table table-hover align-middle">
 
-                    </tbody>
+                                            <thead
+                                                style={{
+                                                    background: "#2874F0",
+                                                    color: "#fff"
+                                                }}
+                                            >
 
-                </table>
+                                                <tr>
+
+                                                    <th className="py-3">No.</th>
+
+                                                    <th>Name</th>
+
+                                                    <th>Price</th>
+
+                                                    <th>Category</th>
+
+                                                    <th className="text-center">
+                                                        Action
+                                                    </th>
+
+                                                </tr>
+
+                                            </thead>
+
+                                            <tbody>
+
+                                                {
+
+                                                    products.length > 0 ? (
+
+                                                        products.map((product, index) => (
+
+                                                            <tr key={product._id}>
+
+                                                                <td>
+                                                                    {index + 1}
+                                                                </td>
+
+                                                                <td className="fw-semibold">
+                                                                    {product.name}
+                                                                </td>
+
+                                                                <td className="text-success fw-bold">
+                                                                    ₹ {product.price}
+                                                                </td>
+
+                                                                <td>
+                                                                    {product.category?.name}
+                                                                </td>
+
+                                                                <td className="text-center">
+
+                                                                    <Link
+                                                                        to={`/edit-product/${product._id}`}
+                                                                        className="btn btn-success me-2 px-3"
+                                                                        style={{
+                                                                            borderRadius: "8px"
+                                                                        }}
+                                                                    >
+                                                                        Edit
+                                                                    </Link>
+
+                                                                    <button
+                                                                        className="btn btn-danger px-3"
+                                                                        style={{
+                                                                            borderRadius: "8px"
+                                                                        }}
+                                                                        onClick={() => handleDelete(product._id)}
+                                                                    >
+                                                                        Delete
+                                                                    </button>
+
+                                                                </td>
+
+                                                            </tr>
+
+                                                        ))
+
+                                                    ) : (
+
+                                                        <tr>
+
+                                                            <td
+                                                                colSpan="5"
+                                                                className="text-center py-5"
+                                                            >
+                                                                No Products Found
+                                                            </td>
+
+                                                        </tr>
+
+                                                    )
+
+                                                }
+
+                                            </tbody>
+
+                                        </table>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
 
             </div>
 

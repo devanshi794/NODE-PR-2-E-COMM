@@ -68,75 +68,140 @@ const ViewCategory = () => {
 
             <Header />
 
-            <div className="container mt-5">
+            <div
+                className="container-fluid py-5"
+                style={{
+                    background: "#f1f3f6",
+                    minHeight: "100vh"
+                }}
+            >
 
-                <h2 className="text-center mb-4">
-                    View Category
-                </h2>
+                <div className="container">
 
-                <table className="table table-bordered table-striped">
+                    <div className="row justify-content-center">
 
-                    <thead className="table-dark">
+                        <div className="col-lg-11">
 
-                        <tr>
+                            <div
+                                className="card border-0 shadow-lg"
+                                style={{
+                                    borderRadius: "18px"
+                                }}
+                            >
 
-                            <th>No.</th>
+                                <div className="card-body p-4">
 
-                            <th>Category Name</th>
+                                    <h2
+                                        className="text-center fw-bold"
+                                        style={{
+                                            color: "#2874F0"
+                                        }}
+                                    >
+                                        View Categories
+                                    </h2>
 
-                            <th>Action</th>
+                                    <p className="text-center text-muted mb-4">
+                                        Manage all your product categories
+                                    </p>
 
-                        </tr>
+                                    <div className="table-responsive">
 
-                    </thead>
+                                        <table className="table table-hover align-middle">
 
-                    <tbody>                        {
+                                            <thead>
 
-                        categories.length > 0 ? (
+                                                <tr>
 
-                            categories.map((item, index) => (
+                                                    <th style={{ width: "10%" }}>
+                                                        No.
+                                                    </th>
 
-                                <tr key={item._id}>
+                                                    <th
+                                                        className="text-center"
+                                                        style={{ width: "60%" }}
+                                                    >
+                                                        Category Name
+                                                    </th>
 
-                                    <td>{index + 1}</td>
+                                                    <th
+                                                        className="text-center pe-5"
+                                                        style={{ width: "10%" }}
+                                                    >
+                                                        Action
+                                                    </th>
 
-                                    <td>{item.name}</td>
+                                                </tr>
 
-                                    <td>
+                                            </thead>
 
-                                        <button
-                                            className="btn btn-danger btn-sm"
-                                            onClick={() => handleDelete(item._id)}
-                                        >
-                                            Delete
-                                        </button>
+                                            <tbody>
 
-                                    </td>
+                                                {
 
-                                </tr>
+                                                    categories.length > 0 ? (
 
-                            ))
+                                                        categories.map((item, index) => (
 
-                        ) : (
+                                                            <tr key={item._id}>
 
-                            <tr>
+                                                                <td>
+                                                                    {index + 1}
+                                                                </td>
 
-                                <td
-                                    colSpan="3"
-                                    className="text-center"
-                                >
-                                    No Category Found
-                                </td>
+                                                                <td className="text-center fw-semibold">
+                                                                    {item.name}
+                                                                </td>
 
-                            </tr>
+                                                                <td className="text-end pe-5">
 
-                        )
+                                                                    <button
+                                                                        className="btn btn-danger px-4"
+                                                                        style={{
+                                                                            borderRadius: "8px"
+                                                                        }}
+                                                                        onClick={() => handleDelete(item._id)}
+                                                                    >
+                                                                        Delete
+                                                                    </button>
 
-                    }
+                                                                </td>
 
-                    </tbody>
+                                                            </tr>
 
-                </table>
+                                                        ))
+
+                                                    ) : (
+
+                                                        <tr>
+
+                                                            <td
+                                                                colSpan="3"
+                                                                className="text-center py-5"
+                                                            >
+                                                                No Category Found
+                                                            </td>
+
+                                                        </tr>
+
+                                                    )
+
+                                                }
+
+                                            </tbody>
+
+                                        </table>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
 
             </div>
 

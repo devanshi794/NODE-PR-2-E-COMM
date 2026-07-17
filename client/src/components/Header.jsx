@@ -1,14 +1,24 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import UserContext from "../context/user/UserContext";
+import flipkartLogo from "../assets/flipkart-logo.jpeg";
 
-const Header = () => {
+import {
+    FaHome,
+    FaShoppingCart,
+    FaUserCircle,
+    FaTachometerAlt,
+    FaSearch
+} from "react-icons/fa";
+
+const Header = ({ search, setSearch }) => {
 
     const { isLogin, user, setIsLogin, setUser } = useContext(UserContext);
 
     const handleLogOut = () => {
 
         localStorage.removeItem("token");
+        localStorage.removeItem("userId");
 
         setIsLogin(false);
 
@@ -18,12 +28,24 @@ const Header = () => {
 
     return (
 
-        <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+        <nav className="navbar navbar-expand-lg bg-white sticky-top">
 
             <div className="container">
 
-                <Link className="navbar-brand fw-bold" to="/">
-                    Flipkart
+                <Link
+                    className="navbar-brand me-4"
+                    to="/"
+                >
+
+                    <img
+                        src={flipkartLogo}
+                        alt="Flipkart"
+                        style={{
+                            height: "40px",
+                            width: "auto"
+                        }}
+                    />
+
                 </Link>
 
                 <button
@@ -32,7 +54,9 @@ const Header = () => {
                     data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent"
                 >
+
                     <span className="navbar-toggler-icon"></span>
+
                 </button>
 
                 <div
@@ -40,46 +64,113 @@ const Header = () => {
                     id="navbarSupportedContent"
                 >
 
-                    <form className="d-flex mx-auto" style={{ width: "40%" }}>
+                    {/* Search */}
 
-                        <input
-                            className="form-control"
-                            type="search"
-                            placeholder="Search Products"
-                        />
+                    <form
+                        className="mx-lg-5 my-3 my-lg-0"
+                        style={{
+                            width: "45%"
+                        }}
+                    >
+
+                        <div className="input-group">
+
+                            <span
+                                className="input-group-text bg-light border-0"
+                            >
+
+                                <FaSearch color="#2874F0" />
+
+                            </span>
+
+                            <input
+                                className="form-control border-0 bg-light"
+                                type="text"
+                                placeholder="Search Products"
+                                value={search}
+                                onChange={(e) => setSearch(e.target.value)}
+                                style={{
+                                    height: "45px",
+                                    boxShadow: "none"
+                                }}
+                            />
+
+                        </div>
 
                     </form>
 
-                    <ul className="navbar-nav ms-auto">
+                    <ul className="navbar-nav ms-auto align-items-center">
 
-                        <li className="nav-item">
+                        <li className="nav-item me-3">
 
-                            <Link className="nav-link" to="/">
+                            <Link
+                                className="nav-link fw-semibold d-flex align-items-center"
+                                to="/"
+                                style={{
+                                    color: "#2874F0",
+                                    fontWeight: "500",
+                                    fontSize: "18px"
+                                }}
+                            >
+
+                                <FaHome
+                                    className="me-2"
+                                    size={18}
+                                />
+
                                 Home
+
                             </Link>
 
                         </li>
 
-                        <li className="nav-item">
+                        <li className="nav-item me-3">
 
-                            <Link className="nav-link" to="/cart">
+                            <Link
+                                className="nav-link fw-semibold d-flex align-items-center"
+                                to="/cart"
+                                style={{
+                                    color: "#2874F0",
+                                    fontWeight: "500",
+                                    fontSize: "18px"
+                                }}
+                            >
+
+                                <FaShoppingCart
+                                    className="me-2"
+                                    size={18}
+                                />
+
                                 Cart
+
                             </Link>
 
-                        </li>
+                        </li>                        {
 
-                        {
-                            isLogin && user?.role === "admin" && (
+                            isLogin &&
+                            user?.role === "admin" && (
 
-                                <li className="nav-item dropdown">
+                                <li className="nav-item dropdown me-3">
 
                                     <a
-                                        className="nav-link dropdown-toggle"
+                                        className="nav-link dropdown-toggle fw-semibold d-flex align-items-center"
                                         href="#"
                                         role="button"
                                         data-bs-toggle="dropdown"
+                                        style={{
+                                            color: "#2874F0",
+                                            fontWeight: "500",
+                                            fontSize: "18px"
+                                        }}
                                     >
+
+                                        <FaTachometerAlt
+                                            className="me-2"
+                                            size={18}
+                                        />
+
                                         Dashboard
+
                                     </a>
 
                                     <ul className="dropdown-menu">
@@ -89,6 +180,7 @@ const Header = () => {
                                             <Link
                                                 className="dropdown-item"
                                                 to="/add-product"
+                                                style={{ color: "#2874F0" }}
                                             >
                                                 Add Product
                                             </Link>
@@ -100,6 +192,7 @@ const Header = () => {
                                             <Link
                                                 className="dropdown-item"
                                                 to="/view-products"
+                                                style={{ color: "#2874F0" }}
                                             >
                                                 View Products
                                             </Link>
@@ -111,6 +204,7 @@ const Header = () => {
                                             <Link
                                                 className="dropdown-item"
                                                 to="/add-category"
+                                                style={{ color: "#2874F0" }}
                                             >
                                                 Add Category
                                             </Link>
@@ -122,6 +216,7 @@ const Header = () => {
                                             <Link
                                                 className="dropdown-item"
                                                 to="/view-category"
+                                                style={{ color: "#2874F0" }}
                                             >
                                                 View Category
                                             </Link>
@@ -133,16 +228,27 @@ const Header = () => {
                                 </li>
 
                             )
+
                         }
 
                         <li className="nav-item dropdown">
 
                             <a
-                                className="nav-link dropdown-toggle"
+                                className="nav-link dropdown-toggle fw-semibold d-flex align-items-center"
                                 href="#"
                                 role="button"
                                 data-bs-toggle="dropdown"
+                                style={{
+                                    color: "#2874F0",
+                                    fontWeight: "500",
+                                    fontSize: "18px"
+                                }}
                             >
+
+                                <FaUserCircle
+                                    className="me-2"
+                                    size={18}
+                                />
 
                                 {
                                     isLogin
@@ -152,67 +258,75 @@ const Header = () => {
 
                             </a>
 
-                            <ul className="dropdown-menu">
+                            <ul className="dropdown-menu dropdown-menu-end">                                {
 
-                                {
-                                    !isLogin ? (
+                                !isLogin ? (
 
-                                        <>
+                                    <>
 
-                                            <li>
+                                        <li>
 
-                                                <Link
-                                                    className="dropdown-item"
-                                                    to="/login"
-                                                >
-                                                    Login
-                                                </Link>
+                                            <Link
+                                                className="dropdown-item"
+                                                to="/login"
+                                                style={{ color: "#2874F0" }}
+                                            >
+                                                Login
+                                            </Link>
 
-                                            </li>
+                                        </li>
 
-                                            <li>
+                                        <li>
 
-                                                <Link
-                                                    className="dropdown-item"
-                                                    to="/register"
-                                                >
-                                                    Register
-                                                </Link>
+                                            <Link
+                                                className="dropdown-item"
+                                                to="/register"
+                                                style={{ color: "#2874F0" }}
+                                            >
+                                                Register
+                                            </Link>
 
-                                            </li>
+                                        </li>
 
-                                        </>
+                                    </>
 
-                                    ) : (
+                                ) : (
 
-                                        <>
+                                    <>
 
-                                            <li>
+                                        <li>
 
-                                                <Link
-                                                    className="dropdown-item"
-                                                    to="/profile"
-                                                >
-                                                    Profile
-                                                </Link>
+                                            <Link
+                                                className="dropdown-item"
+                                                to="/profile"
+                                                style={{ color: "#2874F0" }}
+                                            >
+                                                Profile
+                                            </Link>
 
-                                            </li>
+                                        </li>
 
-                                            <li>
+                                        <li>
 
-                                                <button
-                                                    className="dropdown-item"
-                                                    onClick={handleLogOut}
-                                                >
-                                                    Logout
-                                                </button>
+                                            <button
+                                                className="dropdown-item"
+                                                onClick={handleLogOut}
+                                                style={{
+                                                    color: "#2874F0",
+                                                    background: "transparent",
+                                                    border: "none"
+                                                }}
+                                            >
+                                                Logout
+                                            </button>
 
-                                            </li>
+                                        </li>
 
-                                        </>
+                                    </>
 
-                                    )
-                                }
+                                )
+
+                            }
 
                             </ul>
 

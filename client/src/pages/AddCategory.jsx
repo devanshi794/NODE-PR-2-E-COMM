@@ -51,39 +51,66 @@ const AddCategory = () => {
 
             <Header />
 
-            <div className="container mt-5">
+            <div
+                className="container-fluid py-5"
+                style={{
+                    background: "#f1f3f6",
+                    minHeight: "100vh"
+                }}
+            >
 
                 <div className="row justify-content-center">
 
-                    <div className="col-md-5">
+                    <div className="col-lg-5 col-md-6">
 
-                        <div className="card shadow">
+                        <div
+                            className="card border-0 shadow-lg"
+                            style={{
+                                borderRadius: "20px"
+                            }}
+                        >
 
-                            <div className="card-body">
+                            <div className="card-body p-5">
 
-                                <h2 className="text-center mb-4">
+                                <h2
+                                    className="text-center fw-bold"
+                                    style={{
+                                        color: "#2874F0"
+                                    }}
+                                >
                                     Add Category
                                 </h2>
 
-                                <form onSubmit={handleSubmit}>                                    <div className="mb-3">
+                                <p className="text-center text-muted mb-5">
+                                    Create a new category for your products
+                                </p>
 
-                                    <label className="form-label">
-                                        Category Name
-                                    </label>
+                                <form onSubmit={handleSubmit}>
 
-                                    <input
-                                        type="text"
-                                        className="form-control"
-                                        value={name}
-                                        onChange={(e) => setName(e.target.value)}
-                                        required
-                                    />
+                                    <div className="mb-4">
 
-                                </div>
+                                        <label className="form-label fw-semibold">
+                                            Category Name
+                                        </label>
 
-                                    <button
+                                        <input
+                                            type="text"
+                                            className="form-control py-3"
+                                            placeholder="Enter Category Name"
+                                            value={name}
+                                            onChange={(e) => setName(e.target.value)}
+                                            required
+                                        />
+
+                                    </div>                                    <button
                                         type="submit"
-                                        className="btn btn-primary w-100"
+                                        className="btn w-100 text-white fw-bold py-3"
+                                        style={{
+                                            background: "#FB641B",
+                                            border: "none",
+                                            borderRadius: "10px",
+                                            fontSize: "18px"
+                                        }}
                                     >
                                         Add Category
                                     </button>

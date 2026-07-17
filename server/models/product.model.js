@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 
 const productSchema = new mongoose.Schema({
+
     name: {
         type: String,
         required: true
@@ -25,6 +26,14 @@ const productSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "Category",
         required: true
+    },
+
+    rating: {
+        type: Number,
+        required: true,
+        default: 5,
+        min: 1,
+        max: 5
     }
 
 }, {
