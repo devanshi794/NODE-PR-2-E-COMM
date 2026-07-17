@@ -159,12 +159,6 @@ Flipkart-Clone
 
 # Installation
 
-## Clone Repository
-
-```bash
-git clone https://github.com/yourusername/flipkart-clone.git
-```
-
 ## Install Backend
 
 ```bash
