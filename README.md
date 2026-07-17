@@ -93,67 +93,67 @@ Flipkart-Clone
 
 ## Home Page
 
-![Home Page](screenshots/home.png)
+![Home Page](Screenshots/home.png)
 
 ---
 
 ## Login Page
 
-![Login Page](screenshots/login.png)
+![Login Page](Screenshots/login.png)
 
 ---
 
 ## Register Page
 
-![Register Page](screenshots/register.png)
+![Register Page](Screenshots/register.png)
 
 ---
 
 ## Cart Page
 
-![Cart Page](screenshots/cart.png)
+![Cart Page](Screenshots/cart.png)
 
 ---
 
 ## Add Product
 
-![Add Product](screenshots/add-product.png)
+![Add Product](Screenshots/add-product.png)
 
 ---
 
 ## Edit Product
 
-![Edit Product](screenshots/edit-product.png)
+![Edit Product](Screenshots/edit-product.png)
 
 ---
 
 ## View Products
 
-![View Products](screenshots/view-products.png)
+![View Products](Screenshots/view-products.png)
 
 ---
 
 ## Add Category
 
-![Add Category](screenshots/add-category.png)
+![Add Category](Screenshots/add-category.png)
 
 ---
 
 ## View Categories
 
-![View Categories](screenshots/view-categories.png)
+![View Categories](Screenshots/view-categories.png)
 
 ---
 
 ## Search Products
 
-![Search Filter](screenshots/search-products.png)
+![Search Filter](Screenshots/search-products.png)
 
 ---
 
 ## Admin Dashboard
 
-![Admin Dashboard](screenshots/admin-dashboard.png)
+![Admin Dashboard](Screenshots/admin-dashboard.png)
 
 ---
 
