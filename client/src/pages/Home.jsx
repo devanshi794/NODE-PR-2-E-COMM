@@ -204,7 +204,6 @@ const Home = () => {
 
             {/* Coupon Banner */}
 
-
             <div className="container mt-3">
 
                 <img
@@ -212,7 +211,7 @@ const Home = () => {
                     alt=""
                     className="img-fluid rounded shadow-sm w-100"
                     style={{
-                        height: "140px",
+                        height: "240px",
                         objectFit: "cover"
                     }}
                 />
