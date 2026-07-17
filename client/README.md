@@ -1,75 +1,171 @@
-# 🛒 NODE-PR-2-E-COMM
+# 🛒 Flipkart Clone (MERN Stack)
 
-A modern online shopping platform where users can browse products, manage their cart, and place orders through a simple and user-friendly interface.
-
-## 🚀 Features
-
-- 👤 User Authentication (Register & Login)
-- 🔐 JWT Authentication
-- 🛍️ View Products
-- 🔎 Search Products
-- 📂 Category Management
-- ➕ Add Product
-- ✏️ Edit Product
-- ❌ Delete Product
-- 🛒 Add to Cart
-- 🗑️ Remove from Cart
-- 💳 Place Order UI
-- 👤 User Profile
-- 👨‍💼 Admin Dashboard
-- 📱 Responsive Design
+A full-stack Flipkart Clone built using the MERN Stack. Users can browse products, search products, filter by category, manage cart, and admins can manage products and categories.
 
 ---
 
-## 🛠️ Technologies Used
+# Technologies Used
 
-### Frontend
+## Frontend
+
 - React.js
 - React Router DOM
 - Bootstrap 5
 - Axios
+- React Icons
 
-### Backend
+## Backend
+
 - Node.js
 - Express.js
 - MongoDB
 - Mongoose
-- JWT
-- bcrypt
+- JWT Authentication
+- bcryptjs
 
 ---
 
-## 📁 Project Structure
+# Project Structure
 
 ```
-NODE-PR-2-E-COMM
+Flipkart-Clone
 │
 ├── client
 │   ├── src
-│   ├── public
-│   └── package.json
+│   │   ├── api
+│   │   ├── assets
+│   │   ├── components
+│   │   ├── context
+│   │   ├── pages
+│   │   ├── App.jsx
+│   │   └── main.jsx
 │
 ├── server
+│   ├── config
 │   ├── controllers
+│   ├── middleware
 │   ├── models
-│   ├── routers
-│   ├── middlewares
+│   ├── routes
+│   ├── index.js
 │   └── package.json
-│
-└── README.md
 ```
 
 ---
 
-## ⚙️ Installation
+# Features
 
-### Clone Repository
+### User
+
+- User Registration
+- User Login
+- Browse Products
+- Search Products
+- Filter Products by Category
+- Product Details
+- Add to Cart
+- Remove from Cart
+
+### Admin
+
+- Add Product
+- Edit Product
+- Delete Product
+- Manage Categories
+- View Products
+
+---
+
+# Categories
+
+- Electronics
+- Fashion
+- Home & Kitchen
+- Beauty
+- Appliances
+- Gaming
+- Travel & Luggage
+
+---
+
+---
+
+# Project Screenshots
+
+## Home Page
+
+![Home Page](screenshots/home.png)
+
+---
+
+## Login Page
+
+![Login Page](screenshots/login.png)
+
+---
+
+## Register Page
+
+![Register Page](screenshots/register.png)
+
+---
+
+## Cart Page
+
+![Cart Page](screenshots/cart.png)
+
+---
+
+## Add Product
+
+![Add Product](screenshots/add-product.png)
+
+---
+
+## Edit Product
+
+![Edit Product](screenshots/edit-product.png)
+
+---
+
+## View Products
+
+![View Products](screenshots/view-products.png)
+
+---
+
+## Add Category
+
+![Add Category](screenshots/add-category.png)
+
+---
+
+## View Categories
+
+![View Categories](screenshots/view-categories.png)
+
+---
+
+## Search Products
+
+![Search Filter](screenshots/search-products.png)
+
+---
+
+## Admin Dashboard
+
+![Admin Dashboard](screenshots/admin-dashboard.png)
+
+---
+
+# Installation
+
+## Clone Repository
 
 ```bash
-git clone https://github.com/devanshi794/NODE-PR-2-E-COMM.git
+git clone https://github.com/yourusername/flipkart-clone.git
 ```
 
-### Backend
+## Install Backend
 
 ```bash
 cd server
@@ -77,7 +173,13 @@ npm install
 npm start
 ```
 
-### Frontend
+or (if using nodemon)
+
+```bash
+npm run dev
+```
+
+## Install Frontend
 
 ```bash
 cd client
@@ -87,40 +189,47 @@ npm run dev
 
 ---
 
-## 📸 Screenshots
+# API Endpoints
 
-### Home Page
+## Authentication
 
-![Home](screenshots/home.png)
+- POST /api/auth/register
+- POST /api/auth/login
 
-### Login Page
+## Category
 
-![Login](screenshots/login.png)
+- GET /api/category
+- POST /api/category
+- PUT /api/category/:id
+- DELETE /api/category/:id
 
-### Register Page
+## Product
 
-![Register](screenshots/register.png)
+- GET /api/product
+- GET /api/product/:id
+- POST /api/product
+- PUT /api/product/:id
+- DELETE /api/product/:id
 
-### Product Details
+---
+---
 
-![Product](screenshots/products.png)
+# Project Explanation Video
 
-### Cart
+A complete project explanation video is included with this project.
 
-![Cart](screenshots/cart.png)
+**Video Link:** *(Paste your Google Drive, YouTube, or GitHub video link here)*
 
-### Dashboard
+Example:
 
-![Dashboard](screenshots/dashboard.png)
-
-### Add Product
-
-![Add Product](screenshots/add-product.png)
+https://drive.google.com/your-video-link
 
 ---
 
-## 📌 Conclusion
+# Conclusion
 
-This project is a complete E-Commerce web application developed as a practical MERN Stack project. It provides essential e-commerce functionalities such as user authentication, product management, category management, shopping cart, product search, and role-based access for both users and administrators.
+The Flipkart Clone project demonstrates the implementation of a complete MERN Stack E-commerce application. It includes user authentication, category management, product management, search functionality, filtering, shopping cart, and responsive user interface.
 
-Through this project, I gained hands-on experience in building REST APIs, integrating frontend and backend, managing databases with MongoDB, implementing JWT authentication, protecting routes, and creating a responsive user interface using React and Bootstrap.
+This project helped in understanding the integration of React.js, Node.js, Express.js, MongoDB, REST APIs, JWT Authentication, Context API, and CRUD operations. It also provided practical experience in building a real-world full-stack web application following modular architecture and clean coding practices.
+
+The project can be further enhanced by adding features such as online payment integration, wishlist, order management, product reviews, image uploads using Cloudinary, and user profile management.

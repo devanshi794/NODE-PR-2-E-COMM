@@ -95,7 +95,7 @@ const AddProduct = () => {
 
                 <div className="row justify-content-center">
 
-                    <div className="col-lg-7 col-md-9">
+                    <div className="col-lg-6 col-md-8">
 
                         <div
                             className="card border-0 shadow-lg"
@@ -104,7 +104,7 @@ const AddProduct = () => {
                             }}
                         >
 
-                            <div className="card-body p-5">
+                            <div className="card-body p-4">
 
                                 <h2
                                     className="text-center fw-bold mb-2"

@@ -15,6 +15,7 @@ const EditProduct = () => {
     const [description, setDescription] = useState("");
     const [category, setCategory] = useState("");
     const [image, setImage] = useState("");
+    const [rating, setRating] = useState(5);
 
     const [categories, setCategories] = useState([]);
 
@@ -29,6 +30,7 @@ const EditProduct = () => {
             setDescription(response.data.description);
             setCategory(response.data.category);
             setImage(response.data.image);
+            setRating(response.data.rating);
 
         } catch (error) {
 
@@ -74,7 +76,8 @@ const EditProduct = () => {
                 price,
                 description,
                 category,
-                image
+                image,
+                rating
             };
 
             await axiosInstance.put(
@@ -95,7 +98,7 @@ const EditProduct = () => {
 
             console.log(error);
 
-            alert(error.response?.data?.message);
+            alert(error.response?.data?.message || "Something went wrong");
 
         }
 
@@ -108,8 +111,11 @@ const EditProduct = () => {
             <Header />
 
             <div
-                className="container py-5"
-                style={{ minHeight: "90vh" }}
+                className="container-fluid py-4"
+                style={{
+                    background: "#f1f3f6",
+                    minHeight: "100vh"
+                }}
             >
 
                 <div className="row justify-content-center">
@@ -119,72 +125,99 @@ const EditProduct = () => {
                         <div
                             className="card border-0"
                             style={{
-                                borderRadius: "18px",
-                                boxShadow: "0 8px 25px rgba(0,0,0,.08)"
+                                borderRadius: "20px",
+                                boxShadow: "0 15px 40px rgba(0,0,0,.12)"
                             }}
                         >
 
-                            <div className="card-body p-4">
+                            <div className="card-body p-4">                                <div className="text-center mb-4">
 
-                                <div className="text-center mb-4">
+                                <div
+                                    className="mx-auto mb-3 d-flex align-items-center justify-content-center"
+                                    style={{
+                                        width: "70px",
+                                        height: "70px",
+                                        borderRadius: "50%",
+                                        background: "linear-gradient(135deg,#2874F0,#4F9BFF)"
+                                    }}
+                                >
 
-                                    <div
-                                        className="mx-auto mb-3 d-flex align-items-center justify-content-center"
-                                        style={{
-                                            width: "70px",
-                                            height: "70px",
-                                            borderRadius: "50%",
-                                            background: "#E8F1FF"
-                                        }}
-                                    >
-                                        <FaBoxOpen
-                                            size={32}
-                                            color="#2874F0"
-                                        />
-                                    </div>
-
-                                    <h2
-                                        className="fw-bold"
-                                        style={{ color: "#2874F0" }}
-                                    >
-                                        Edit Product
-                                    </h2>
-
-                                    <p className="text-muted">
-                                        Update your product details
-                                    </p>
+                                    <FaBoxOpen
+                                        size={32}
+                                        color="white"
+                                    />
 
                                 </div>
 
-                                <form onSubmit={handleSubmit}>                                    <div className="mb-3">
+                                <h2
+                                    className="fw-bold mb-2"
+                                    style={{
+                                        color: "#2874F0"
+                                    }}
+                                >
+                                    Edit Product
+                                </h2>
 
-                                        <label className="form-label fw-semibold">
-                                            Product Name
-                                        </label>
+                                <p className="text-muted">
+                                    Update your product details
+                                </p>
 
-                                        <input
-                                            type="text"
-                                            className="form-control py-2"
-                                            value={name}
-                                            onChange={(e) => setName(e.target.value)}
-                                            required
-                                        />
+                            </div>
 
-                                    </div>
+                                <form onSubmit={handleSubmit}>
 
-                                    <div className="mb-3">
+                                    <div className="row">
 
-                                        <label className="form-label fw-semibold">
-                                            Price
-                                        </label>
+                                        <div className="col-md-6 mb-3">
 
-                                        <input
-                                            type="number"
-                                            className="form-control py-2"
-                                            value={price}
-                                            onChange={(e) => setPrice(e.target.value)}
-                                            required
-                                        />
+                                            <label className="form-label fw-semibold">
+                                                Product Name
+                                            </label>
+
+                                            <input
+                                                type="text"
+                                                className="form-control py-2"
+                                                value={name}
+                                                onChange={(e) => setName(e.target.value)}
+                                                required
+                                            />
+
+                                        </div>
+
+                                        <div className="col-md-3 mb-3">
+
+                                            <label className="form-label fw-semibold">
+                                                Price
+                                            </label>
+
+                                            <input
+                                                type="number"
+                                                className="form-control py-2"
+                                                value={price}
+                                                onChange={(e) => setPrice(e.target.value)}
+                                                required
+                                            />
+
+                                        </div>
+
+                                        <div className="col-md-3 mb-3">
+
+                                            <label className="form-label fw-semibold">
+                                                Rating
+                                            </label>
+
+                                            <input
+                                                type="number"
+                                                className="form-control py-2"
+                                                min="1"
+                                                max="5"
+                                                step="0.1"
+                                                value={rating}
+                                                onChange={(e) => setRating(e.target.value)}
+                                                required
+                                            />
+
+                                        </div>
 
                                     </div>
 
@@ -204,63 +237,91 @@ const EditProduct = () => {
 
                                     </div>
 
-                                    <div className="mb-3">
+                                    <div className="row">
 
-                                        <label className="form-label fw-semibold">
-                                            Category
-                                        </label>
+                                        <div className="col-md-6 mb-3">
 
-                                        <select
-                                            className="form-select py-2"
-                                            value={category}
-                                            onChange={(e) => setCategory(e.target.value)}
-                                            required
-                                        >
+                                            <label className="form-label fw-semibold">
+                                                Category
+                                            </label>
 
-                                            <option value="">
-                                                Select Category
-                                            </option>
+                                            <select
+                                                className="form-select py-2"
+                                                value={category}
+                                                onChange={(e) => setCategory(e.target.value)}
+                                                required
+                                            >
 
-                                            {
+                                                <option value="">
+                                                    Select Category
+                                                </option>
 
-                                                categories.map((item) => (
+                                                {
 
-                                                    <option
-                                                        key={item._id}
-                                                        value={item._id}
-                                                    >
-                                                        {item.name}
-                                                    </option>
+                                                    categories.map((item) => (
 
-                                                ))
+                                                        <option
+                                                            key={item._id}
+                                                            value={item._id}
+                                                        >
+                                                            {item.name}
+                                                        </option>
 
-                                            }
+                                                    ))
 
-                                        </select>
+                                                }
+
+                                            </select>
+
+                                        </div>                                        <div className="col-md-6 mb-3">
+
+                                            <label className="form-label fw-semibold">
+                                                Image URL
+                                            </label>
+
+                                            <input
+                                                type="text"
+                                                className="form-control py-2"
+                                                placeholder="Enter Product Image URL"
+                                                value={image}
+                                                onChange={(e) => setImage(e.target.value)}
+                                                required
+                                            />
+
+                                        </div>
 
                                     </div>
 
-                                    <div className="mb-4">
+                                    {
+                                        image && (
 
-                                        <label className="form-label fw-semibold">
-                                            Image URL
-                                        </label>
+                                            <div className="text-center mb-4">
 
-                                        <input
-                                            type="text"
-                                            className="form-control py-2"
-                                            placeholder="Enter Product Image URL"
-                                            value={image}
-                                            onChange={(e) => setImage(e.target.value)}
-                                            required
-                                        />
+                                                <img
+                                                    src={image}
+                                                    alt="Preview"
+                                                    className="img-fluid border rounded shadow-sm"
+                                                    style={{
+                                                        maxHeight: "220px",
+                                                        objectFit: "contain",
+                                                        borderRadius: "12px"
+                                                    }}
+                                                    onError={(e) => {
+                                                        e.target.style.display = "none";
+                                                    }}
+                                                />
 
-                                    </div>
+                                            </div>
+
+                                        )
+                                    }
 
                                     <button
                                         type="submit"
-                                        className="btn btn-primary w-100 py-2 fw-semibold"
+                                        className="btn w-100 py-2 fw-bold text-white"
                                         style={{
+                                            background: "#FB641B",
+                                            border: "none",
                                             borderRadius: "10px",
                                             fontSize: "17px"
                                         }}
