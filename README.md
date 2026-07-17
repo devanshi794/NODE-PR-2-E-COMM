@@ -224,11 +224,7 @@ npm run dev
 
 A complete project explanation video is included with this project.
 
-**Video Link:** *(Paste your Google Drive, YouTube, or GitHub video link here)*
-
-Example:
-
-https://drive.google.com/your-video-link
+video link : https://drive.google.com/file/d/1XhESfMdZt6gMOfGwNRkLWgv8EMk3oKL-/view?usp=sharing
 
 ---
 
